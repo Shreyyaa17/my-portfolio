@@ -6,7 +6,7 @@ Welcome to my personal portfolio website! This showcases my journey as a Full St
 
 This is a modern, responsive portfolio website built to showcase my skills as a Full Stack Developer. The site features clean animations, professional design, and an integrated contact system.
 
-**Live Website:** [https://your-portfolio-url.vercel.app](https://your-portfolio-url.vercel.app)
+**Live Website:** [https://my-portfolio-one-gamma-pojw9kk3hl.vercel.app/](https://my-portfolio-one-gamma-pojw9kk3hl.vercel.app/)
 
 ## Features
 
