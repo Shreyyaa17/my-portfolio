@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shreya Gupta - Full Stack Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2563EB",
+              secondary: "#F9FAFB",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Custom Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes fadeInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes slideInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes typewriter {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      .animate-fadeInUp {
+        animation: fadeInUp 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-fadeInLeft {
+        animation: fadeInLeft 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-fadeInRight {
+        animation: fadeInRight 0.8s ease-out forwards;
+        opacity: 0;
+      }
+
+      .animate-slideInDown {
+        animation: slideInDown 0.6s ease-out forwards;
+        opacity: 0;
+      }
+
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+      .delay-600 {
+        animation-delay: 0.6s;
+      }
+
+      /* Hover Effects */
+      .hover-lift {
+        transition: all 0.3s ease;
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+
+      .hover-glow:hover {
+        box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+        transition: box-shadow 0.3s ease;
+      }
+
+      /* Typewriter effect */
+      .typewriter {
+        overflow: hidden;
+        border-right: 2px solid #2563eb;
+        white-space: nowrap;
+        animation: typewriter 3s steps(40) 1s both, blink 1s step-end infinite;
+      }
+
+      /* Floating animation */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .float {
+        animation: float 3s ease-in-out infinite;
+      }
+
+      /* Gradient background animation */
+      @keyframes gradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .gradient-animate {
+        background: linear-gradient(-45deg, #2563eb, #3b82f6, #60a5fa, #93c5fd);
+        background-size: 400% 400%;
+        animation: gradientMove 8s ease infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav
+      class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-100 animate-slideInDown"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4">
+          <div
+            class="text-xl font-bold text-primary hover-scale cursor-pointer"
+          >
+            Shreya Gupta
+          </div>
+          <div class="hidden md:flex space-x-8">
+            <a
+              href="#home"
+              class="hover:text-primary transition-all duration-300 hover:-translate-y-1"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="hover:text-primary transition-all duration-300 hover:-translate-y-1"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="hover:text-primary transition-all duration-300 hover:-translate-y-1"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="hover:text-primary transition-all duration-300 hover:-translate-y-1"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="hover:text-primary transition-all duration-300 hover:-translate-y-1"
+              >Contact</a
+            >
+          </div>
+          <button class="md:hidden p-2 hover-scale">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex flex-col justify-center items-center gradient-animate text-white px-4 relative overflow-hidden"
+    >
+      <!-- Animated Background Elements -->
+      <div
+        class="absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full float delay-100"
+      ></div>
+      <div
+        class="absolute bottom-20 right-10 w-32 h-32 bg-white/10 rounded-full float delay-300"
+      ></div>
+      <div
+        class="absolute top-1/2 left-20 w-16 h-16 bg-white/10 rounded-full float delay-500"
+      ></div>
+
+      <div class="text-center max-w-4xl mx-auto z-10">
+        <div class="mb-8 animate-fadeInUp">
+          <span
+            class="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 hover-scale"
+          >
+            Hello, I'm
+          </span>
+        </div>
+
+        <h1
+          class="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp delay-200"
+        >
+          Shreya Gupta
+        </h1>
+
+        <div
+          class="text-2xl md:text-3xl font-semibold mb-8 animate-fadeInUp delay-300"
+        >
+          <span class="typewriter">Full Stack Developer</span>
+        </div>
+
+        <p
+          class="text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed animate-fadeInUp delay-400"
+        >
+          I craft beautiful, scalable web applications that bridge the gap
+          between stunning design and robust functionality. From React frontends
+          to Node.js backends, I build digital experiences that matter.
+        </p>
+
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center animate-fadeInUp delay-500"
+        >
+          <a
+            href="#projects"
+            class="px-8 py-4 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-all duration-300 hover-lift hover-glow"
+          >
+            View My Work
+          </a>
+          <a
+            href="#contact"
+            class="px-8 py-4 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-primary transition-all duration-300 hover-lift"
+          >
+            Get In Touch
+          </a>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce delay-600"
+      >
+        <svg
+          class="w-6 h-6 text-white/70"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          ></path>
+        </svg>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">
+            About Me
+          </h2>
+          <div
+            class="w-20 h-1 bg-primary mx-auto animate-on-scroll delay-100"
+          ></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="animate-on-scroll animate-fadeInLeft">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-900">
+              Passionate about creating digital & real world solutions
+            </h3>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              With a strong foundation in both frontend and backend
+              technologies, I specialize in building end-to-end web applications
+              that are not only visually appealing but also performant and
+              scalable.
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              I love turning complex problems into simple, beautiful designs.
+              When I’m not coding, I enjoy photography and travelling, always
+              seeking inspiration from the world around me to bring fresh ideas
+              into my work.
+            </p>
+
+            <div class="flex flex-wrap gap-4 mb-8">
+              <span
+                class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover-scale cursor-default"
+                >Problem Solver</span
+              >
+              <span
+                class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover-scale cursor-default"
+                >Team Player</span
+              >
+              <span
+                class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm hover-scale cursor-default"
+                >Lifelong Learner</span
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-gradient-to-br from-primary/10 to-blue-100 rounded-2xl p-8 hover-lift animate-on-scroll animate-fadeInRight"
+          >
+            <div class="space-y-6">
+              <div
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  Frontend Expertise
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  React, TypeScript, Tailwind CSS
+                </p>
+              </div>
+              <div
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                <h4 class="font-semibold text-gray-900 mb-2">
+                  Backend Mastery
+                </h4>
+                <p class="text-gray-600 text-sm">
+                  Node.js, Express, MongoDB, PostgreSQL
+                </p>
+              </div>
+              <div
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                <h4 class="font-semibold text-gray-900 mb-2">Tools & DevOps</h4>
+                <p class="text-gray-600 text-sm">Git, Docker, Jest</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">
+            Skills & Technologies
+          </h2>
+          <div
+            class="w-20 h-1 bg-primary mx-auto animate-on-scroll delay-100"
+          ></div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Frontend -->
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg hover-lift animate-on-scroll animate-fadeInUp hover-glow"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-blue-400 to-primary rounded-lg flex items-center justify-center mb-6 hover-scale"
+            >
+              <span class="text-2xl">🎨</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">
+              Frontend Development
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • HTML, CSS, JavaScript, TypeScript
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • React (Vite), Next.js
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • GSAP, Socket.io, WebSocket
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Tailwind CSS, JWT (Authentication)
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Responsive Design
+              </li>
+            </ul>
+          </div>
+
+          <!-- Backend -->
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg hover-lift animate-on-scroll animate-fadeInUp delay-200 hover-glow"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mb-6 hover-scale"
+            >
+              <span class="text-2xl">⚙️</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">
+              Backend Development
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Node.js & Express
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Solidity, Web3.js
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • RESTful APIs & MongoDB
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • PostgreSQL & Prisma ORM
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Authentication & Security
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tools -->
+          <div
+            class="bg-white rounded-xl p-8 shadow-lg hover-lift animate-on-scroll animate-fadeInUp delay-400 hover-glow"
+          >
+            <div
+              class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mb-6 hover-scale"
+            >
+              <span class="text-2xl">🛠️</span>
+            </div>
+            <h3 class="text-xl font-semibold mb-4 text-gray-900">
+              Tools & DevOps
+            </h3>
+            <ul class="text-gray-600 space-y-2">
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Git & GitHub
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Docker
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Vercel
+              </li>
+              <li
+                class="transform transition-all duration-300 hover:translate-x-2"
+              >
+                • Testing (Jest)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold text-gray-900 mb-4 animate-on-scroll">
+            Featured Projects
+          </h2>
+          <div
+            class="w-20 h-1 bg-primary mx-auto mb-6 animate-on-scroll delay-100"
+          ></div>
+          <p
+            class="text-gray-600 max-w-2xl mx-auto animate-on-scroll delay-200"
+          >
+            Here are some of my recent projects that showcase my full-stack
+            development skills
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Project 1 -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift animate-on-scroll animate-fadeInUp hover-glow group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <span class="text-white text-lg font-semibold"
+                >PingMe - Real time Chat Application</span
+              >
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary transition-colors"
+              >
+                Instant Messaging Platform
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A full-stack real-time chat platform with instant messaging
+                powered by Socket.io and WebSockets. Includes authentication via
+                JWT, image sharing with Cloudinary, and a responsive React
+                (Vite) frontend for seamless user experience.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs hover-scale cursor-default"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs hover-scale cursor-default"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs hover-scale cursor-default"
+                  >MongoDB</span
+                >
+                <span
+                  class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs hover-scale cursor-default"
+                  >Socket.io</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="https://ping-me-mj2v.vercel.app/"
+                  class="text-primary hover:text-blue-700 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/Shreyyaa17/ping-me"
+                  class="text-gray-600 hover:text-gray-900 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift animate-on-scroll animate-fadeInUp delay-200 hover-glow group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <span class="text-white text-lg font-semibold"
+                >Udyam Registration Portal</span
+              >
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary transition-colors"
+              >
+                MSME Registration System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                A full-stack clone of India’s official MSME registration system
+                featuring a 6-step form validation, bilingual consent management
+                and secure backend integration.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs hover-scale cursor-default"
+                  >Next.js & Express.js
+                </span>
+                <span
+                  class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-xs hover-scale cursor-default"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs hover-scale cursor-default"
+                  >Prisma ORM</span
+                >
+                <span
+                  class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-xs hover-scale cursor-default"
+                  >TypeScript</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="text-primary hover:text-blue-700 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/Shreyyaa17/udyam-mimic-app"
+                  class="text-gray-600 hover:text-gray-900 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div
+            class="bg-white rounded-xl shadow-lg overflow-hidden hover-lift animate-on-scroll animate-fadeInUp delay-400 hover-glow group"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <span class="text-white text-lg font-semibold"
+                >AI Powered Feedback App</span
+              >
+              <div
+                class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-all duration-300"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-semibold mb-3 text-gray-900 group-hover:text-primary transition-colors"
+              >
+                Smart Review System
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Interactive feedback generation tool using AI(Mock Data) to
+                analyze and improve user responses in real time, with history
+                tracking and clean UI.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs hover-scale cursor-default"
+                  >React</span
+                >
+                <span
+                  class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-xs hover-scale cursor-default"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs hover-scale cursor-default"
+                  >Express</span
+                >
+                <span
+                  class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs hover-scale cursor-default"
+                  >MongoDB</span
+                >
+              </div>
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="text-primary hover:text-blue-700 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com/Shreyyaa17/ai-powered-feedback-app"
+                  class="text-gray-600 hover:text-gray-900 font-medium transition-all duration-300 hover:-translate-y-1"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-20 bg-gray-900 text-white relative overflow-hidden"
+    >
+      <!-- Animated Background -->
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary/20 to-gray-900"
+      ></div>
+      <div
+        class="absolute top-10 right-10 w-32 h-32 bg-primary/20 rounded-full float delay-200"
+      ></div>
+      <div
+        class="absolute bottom-20 left-10 w-20 h-20 bg-primary/20 rounded-full float delay-400"
+      ></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-4xl font-bold mb-4 animate-on-scroll">
+            Let's Work Together
+          </h2>
+          <div
+            class="w-20 h-1 bg-primary mx-auto mb-6 animate-on-scroll delay-100"
+          ></div>
+          <p
+            class="text-gray-300 max-w-2xl mx-auto animate-on-scroll delay-200"
+          >
+            Have a project in mind? Let's discuss how we can bring your ideas to
+            life!
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+          <!-- Get In Touch (Left Column) -->
+          <div class="animate-on-scroll animate-fadeInLeft">
+            <h3 class="text-2xl font-semibold mb-6">Get In Touch</h3>
+
+            <div class="space-y-6">
+              <!-- Email -->
+              <div
+                class="flex items-center space-x-4 hover:translate-x-2 transition-transform duration-300"
+              >
+                <div
+                  class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center hover-scale"
+                >
+                  <span class="text-xl">📧</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold">Email</h4>
+                  <a
+                    href="mailto:shreyaag402@gmail.com"
+                    class="text-gray-300 hover:text-white transition-all"
+                  >
+                    shreyaag402@gmail.com
+                  </a>
+                </div>
+              </div>
+
+              <!-- LinkedIn -->
+              <div
+                class="flex items-center space-x-4 hover:translate-x-2 transition-transform duration-300"
+              >
+                <div
+                  class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center hover-scale"
+                >
+                  <span class="text-xl">💼</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold">LinkedIn</h4>
+                  <a
+                    href="https://www.linkedin.com/in/shreyagupta003"
+                    target="_blank"
+                    rel="noopener"
+                    class="text-gray-300 hover:text-white transition-all"
+                  >
+                    linkedin.com/in/shreyagupta003
+                  </a>
+                </div>
+              </div>
+
+              <!-- GitHub -->
+              <div
+                class="flex items-center space-x-4 hover:translate-x-2 transition-transform duration-300"
+              >
+                <div
+                  class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center hover-scale"
+                >
+                  <span class="text-xl">🐙</span>
+                </div>
+                <div>
+                  <h4 class="font-semibold">GitHub</h4>
+                  <a
+                    href="https://github.com/Shreyyaa17"
+                    target="_blank"
+                    rel="noopener"
+                    class="text-gray-300 hover:text-white transition-all"
+                  >
+                    github.com/Shreyyaa17
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form (Right Column) -->
+          <div class="animate-on-scroll animate-fadeInRight">
+            <form
+              action="https://formspree.io/f/mldlvvke"
+              method="POST"
+              id="contactForm"
+              class="space-y-6"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Message"
+              />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://yoursite.com/thanks.html"
+              />
+
+              <div>
+                <input
+                  name="Name"
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                  class="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 focus:border-primary focus:outline-none transition-all duration-300 hover:bg-gray-700"
+                />
+              </div>
+
+              <div>
+                <input
+                  name="Email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                  class="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 focus:border-primary focus:outline-none transition-all duration-300 hover:bg-gray-700"
+                />
+              </div>
+
+              <div>
+                <textarea
+                  name="Message"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                  class="w-full px-4 py-3 bg-gray-800 rounded-lg border border-gray-700 focus:border-primary focus:outline-none transition-all duration-300 resize-none hover:bg-gray-700"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="w-full px-6 py-3 bg-primary text-white rounded-lg font-medium hover:bg-blue-700 transition-all duration-300 hover-lift hover-glow"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center animate-on-scroll">
+          <p>
+            &copy; 2025 Shreya Gupta. Built with ❤️ using modern web
+            technologies.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add scroll effect to navigation
+      window.addEventListener("scroll", function () {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 100) {
+          nav.classList.add("shadow-lg", "bg-white/95");
+        } else {
+          nav.classList.remove("shadow-lg", "bg-white/95");
+        }
+      });
+
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = "running";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all elements with animate-on-scroll class
+      document.addEventListener("DOMContentLoaded", function () {
+        const animatedElements =
+          document.querySelectorAll(".animate-on-scroll");
+        animatedElements.forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+      });
+
+      // Add particle effect to hero section (simple version)
+      function createParticle() {
+        const particle = document.createElement("div");
+        particle.className = "absolute w-1 h-1 bg-white/30 rounded-full";
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.top = "100%";
+        particle.style.animation = `particleFall ${
+          3 + Math.random() * 3
+        }s linear forwards`;
+
+        document.querySelector("#home").appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 6000);
+      }
+
+      // Add CSS for particle animation
+      const style = document.createElement("style");
+      style.textContent = `
+      @keyframes particleFall {
+        to {
+          transform: translateY(-100vh);
+          opacity: 0;
+        }
+      }
+    `;
+      document.head.appendChild(style);
+
+      // Create particles periodically
+      setInterval(createParticle, 200);
+
+      // Add typing animation restart on scroll
+      let typingAnimationTriggered = false;
+      window.addEventListener("scroll", function () {
+        const heroSection = document.querySelector("#home");
+        const rect = heroSection.getBoundingClientRect();
+
+        if (rect.top <= 0 && rect.bottom >= 0 && !typingAnimationTriggered) {
+          const typewriter = document.querySelector(".typewriter");
+          if (typewriter) {
+            typewriter.style.animation = "none";
+            setTimeout(() => {
+              typewriter.style.animation =
+                "typewriter 3s steps(40) 1s both, blink 1s step-end infinite";
+            }, 100);
+            typingAnimationTriggered = true;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
